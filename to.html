@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rana - Creative Web Designer, Developer & computer solutions</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#4F46E5", secondary: "#10B981" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      }
+      .hero-bg {
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      }
+      .portfolio-item {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .portfolio-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      .portfolio-overlay {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      }
+      .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+      }
+      .skill-bar {
+      height: 8px;
+      border-radius: 4px;
+      background-color: #e5e7eb;
+      overflow: hidden;
+      }
+      .skill-progress {
+      height: 100%;
+      border-radius: 4px;
+      }
+      input:focus, textarea:focus {
+      outline: none;
+      border-color: #4F46E5;
+      }
+      .nav-link {
+      position: relative;
+      }
+      .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #4F46E5;
+      transition: width 0.3s ease;
+      }
+      .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+      }
+      .custom-checkbox {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #d1d5db;
+      border-radius: 4px;
+      outline: none;
+      cursor: pointer;
+      position: relative;
+      }
+      .custom-checkbox:checked {
+      background-color: #4F46E5;
+      border-color: #4F46E5;
+      }
+      .custom-checkbox:checked::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 6px;
+      width: 6px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <!-- Header Section -->
+    <header
+      class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50 transition-all duration-300"
+    >
+      <div
+        class="container mx-auto px-6 py-4 flex items-center justify-between"
+      ><img src="\Users\ABEY\Downloads\new web log.png" alt="RANA WEBSITE DESIGNERS" width="100" height="100">
+     
+        <a href="#" class="text-2xl font-['Pacifico'] text-primary">RANA WEBSITE DESIGNERS</a>
+        <nav class="hidden md:flex items-center space-x-8">
+          <a
+            href="#home"
+            class="nav-link active text-gray-800 hover:text-primary transition-colors"
+            >Home</a
+          >
+          <a
+            href="#portfolio"
+            class="nav-link text-gray-800 hover:text-primary transition-colors"
+            >Portfolio</a
+          >
+          <a
+            href="#services"
+            class="nav-link text-gray-800 hover:text-primary transition-colors"
+            >Services</a
+          >
+          <a
+            href="#about"
+            class="nav-link text-gray-800 hover:text-primary transition-colors"
+            >About</a
+          >
+          <a
+            href="#contact"
+            class="nav-link text-gray-800 hover:text-primary transition-colors"
+            >Contact</a
+          >
+        </nav>
+        <a
+          href="#contact"
+          class="hidden md:block bg-primary text-white px-5 py-2.5 !rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+          >Hire Me</a
+        >
+        <button
+          id="mobile-menu-button"
+          class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700"
+        >
+          <i class="ri-menu-line ri-lg"></i>
+        </button>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+        <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+          <a
+            href="#home"
+            class="text-gray-800 hover:text-primary py-2 transition-colors"
+            >Home</a
+          >
+          <a
+            href="#portfolio"
+            class="text-gray-800 hover:text-primary py-2 transition-colors"
+            >Portfolio</a
+          >
+          <a
+            href="#services"
+            class="text-gray-800 hover:text-primary py-2 transition-colors"
+            >Services</a
+          >
+          <a
+            href="#about"
+            class="text-gray-800 hover:text-primary py-2 transition-colors"
+            >About</a
+          >
+          <a
+            href="#contact"
+            class="text-gray-800 hover:text-primary py-2 transition-colors"
+            >Contact</a
+          >
+          <a
+            href="#contact"
+            class="bg-primary text-white px-5 py-2.5 !rounded-button font-medium hover:bg-primary/90 transition-colors text-center whitespace-nowrap"
+            >Hire Me</a
+          >
+        </div>
+      </div>
+    </header>
+    <!-- Hero Section -->
+    <section
+     id="home"
+      class="pt-24 hero-bg relative"
+      style="background-image: url('https://readdy.ai/api/search-image?query=modern%20minimalist%20workspace%20with%20computer%2C%20design%20elements%2C%20creative%20atmosphere%2C%20soft%20lighting%2C%20professional%20environment%2C%20clean%20desk%20setup%2C%20web%20design%20elements%2C%20digital%20art%20tools%2C%20neutral%20color%20palette%2C%20inspirational%20workspace&width=1920&height=1080&seq=1&orientation=landscape')"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"
+      ></div>
+      <div class="container mx-auto px-6 py-20 md:py-32 relative">
+        <div class="max-w-2xl">
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6"
+          >
+            Creative Web Designer, Developer & Computer slutions
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-700 mb-8">
+            Crafting Digital Experiences That Stand Out
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="#portfolio"
+              class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+            >
+              View Portfolio
+            </a>
+            <a
+              href="#contact"
+              class="bg-white text-primary border-2 border-primary px-6 py-3 !rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap"
+            >
+              Let's Talk
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="absolute bottom-0 left-0 right-0 flex justify-center">
+        <a
+          href="#portfolio"
+          class="w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center mb-8 animate-bounce"
+        >
+          <i class="ri-arrow-down-line text-primary"></i>
+        </a>
+      </div>
+    </section>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            My Portfolio
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Explore my recent projects and discover how I bring ideas to life
+            through thoughtful design and development.
+          </p>
+        </div>
+        <div class="flex justify-center mb-10">
+          <div class="inline-flex bg-white rounded-full p-1 shadow-sm">
+            <button
+              class="portfolio-filter active px-4 py-2 !rounded-full text-sm font-medium bg-primary text-white whitespace-nowrap"
+            >
+              All Work
+            </button>
+            <button
+              class="portfolio-filter px-4 py-2 !rounded-full text-sm font-medium text-gray-700 hover:text-primary whitespace-nowrap"
+            >
+              Web Design
+            </button>
+            <button
+              class="portfolio-filter px-4 py-2 !rounded-full text-sm font-medium text-gray-700 hover:text-primary whitespace-nowrap"
+            >
+              UI/UX
+            </button>
+            <button
+              class="portfolio-filter px-4 py-2 !rounded-full text-sm font-medium text-gray-700 hover:text-primary whitespace-nowrap"
+            >
+              Development
+            </button>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Portfolio Item 1 -->
+          <div
+            class="portfolio-item bg-white rounded-lg overflow-hidden shadow-sm"
+          >
+            <div class="relative h-64">
+              <img
+                src="https://readdy.ai/api/search-image?query=modern%20e-commerce%20website%20design%20with%20clean%20layout%2C%20product%20showcase%2C%20minimalist%20interface%2C%20professional%20web%20design%2C%20online%20store%20homepage%20with%20elegant%20typography%2C%20shopping%20cart%20functionality%2C%20responsive%20design%20elements%2C%20white%20background%20with%20accent%20colors&width=600&height=400&seq=2&orientation=landscape"
+                alt="E-commerce Website"
+                class="w-full h-full object-cover object-top"
+              />
+              <div
+                class="portfolio-overlay absolute inset-0 bg-primary/80 flex items-center justify-center p-6"
+              >
+                <div class="text-center text-white">
+                  <h3 class="text-xl font-semibold mb-2">
+                    Luxe Fashion E-commerce
+                  </h3>
+                  <p class="mb-4">
+                    A premium online shopping experience with seamless checkout
+                    and personalized recommendations.
+                  </p>
+                  <a
+                    href="#"
+                    class="inline-flex items-center text-white border-b border-white pb-1 hover:pb-2 transition-all"
+                  >
+                    View Details <i class="ri-arrow-right-line ml-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-semibold text-gray-900 mb-1">
+                Luxe Fashion E-commerce
+              </h3>
+              <p class="text-gray-600 text-sm mb-3">Web Design and maintainance, Development</p>
+              <a
+                href="#"
+                class="text-primary font-medium inline-flex items-center view-project-btn"
+                data-project="Luxe Fashion E-commerce"
+              >
+                View Project <i class="ri-arrow-right-line ml-1"></i>
+              </a>
+            </div>
+          </div>
+          <!-- Portfolio Item 2 -->
+          <div
+            class="portfolio-item bg-white rounded-lg overflow-hidden shadow-sm"
+          >
+            <div class="relative h-64">
+              <img
+                src="https://readdy.ai/api/search-image?query=mobile%20app%20interface%20design%20for%20fitness%20tracking%2C%20clean%20UI%20design%20with%20health%20metrics%2C%20workout%20plans%2C%20activity%20tracking%20screens%2C%20modern%20mobile%20application%20design%2C%20user-friendly%20interface%2C%20fitness%20data%20visualization%2C%20progress%20tracking%20features%2C%20professional%20app%20design&width=600&height=400&seq=3&orientation=landscape"
+                alt="Fitness App UI"
+                class="w-full h-full object-cover object-top"
+              />
+              <div
+                class="portfolio-overlay absolute inset-0 bg-primary/80 flex items-center justify-center p-6"
+              >
+                <div class="text-center text-white">
+                  <h3 class="text-xl font-semibold mb-2">
+                    FitTrack Mobile App
+                  </h3>
+                  <p class="mb-4">
+                    A comprehensive fitness tracking application with
+                    personalized workout plans and progress analytics.
+                  </p>
+                  <a
+                    href="#"
+                    class="inline-flex items-center text-white border-b border-white pb-1 hover:pb-2 transition-all"
+                  >
+                    View Details <i class="ri-arrow-right-line ml-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-semibold text-gray-900 mb-1">
+                FitTrack Mobile App
+              </h3>
+              <p class="text-gray-600 text-sm mb-3">UI/UX Design</p>
+              <a
+                href="#"
+                class="text-primary font-medium inline-flex items-center"
+              >
+                View Project <i class="ri-arrow-right-line ml-1"></i>
+              </a>
+            </div>
+          </div>
+                    <!-- Portfolio Item 3 -->
+          <div
+            class="portfolio-item bg-white rounded-lg overflow-hidden shadow-sm"
+          >
+            <div class="relative h-64">
+              <img
+                src="https://readdy.ai/api/search-image?query=computerSolutionswidth=600&height=400&seq=4&orientation=landscape"
+                alt="Computer Solutions"
+                class="w-full h-full object-cover object-top"
+              />
+              <div
+                class="portfolio-overlay absolute inset-0 bg-primary/80 flex items-center justify-center p-6"
+              >
+                <div class="text-center text-white">
+                  <h3 class="text-xl font-semibold mb-2">computers</h3>
+                  <p class="mb-4">
+                    An elegant website for a comprehesive computer solutions and IT consultation featuring
+                    online reservations and digital menu.
+                  </p>
+                  <a
+                    href="#"
+                    class="inline-flex items-center text-white border-b border-white pb-1 hover:pb-2 transition-all"
+                  >
+                    View Details <i class="ri-arrow-right-line ml-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-semibold text-gray-900 mb-1">
+                Saveur Restaurant
+              </h3>
+              <p class="text-gray-600 text-sm mb-3">Computer Solutions and IT Consultations</p>
+              <a
+                href="#"
+                class="text-primary font-medium inline-flex items-center"
+              >
+                View Project <i class="ri-arrow-right-line ml-1"></i>
+              </a>
+            </div>
+          </div>
+          <!-- Portfolio Item 4 -->
+          <div
+            class="portfolio-item bg-white rounded-lg overflow-hidden shadow-sm"
+          >
+            <div class="relative h-64">
+              <img
+                src="https://readdy.ai/api/search-image?query=travel%20booking%20website%20interface%20with%20destination%20search%2C%20flight%20and%20hotel%20booking%20options%2C%20travel%20itinerary%20planner%2C%20vacation%20packages%20display%2C%20modern%20travel%20website%20design%2C%20user-friendly%20booking%20system%2C%20travel%20photography%20showcase%2C%20clean%20white%20background%20with%20accent%20colors&width=600&height=400&seq=5&orientation=landscape"
+                alt="Travel Booking Platform"
+                class="w-full h-full object-cover object-top"
+              />
+              <div
+                class="portfolio-overlay absolute inset-0 bg-primary/80 flex items-center justify-center p-6"
+              >
+                <div class="text-center text-white">
+                  <h3 class="text-xl font-semibold mb-2">Wanderlust Travel</h3>
+                  <p class="mb-4">
+                    A comprehensive travel booking platform with itinerary
+                    planning and local experiences.
+                  </p>
+                  <a
+                    href="#"
+                    class="inline-flex items-center text-white border-b border-white pb-1 hover:pb-2 transition-all"
+                  >
+                    View Details <i class="ri-arrow-right-line ml-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-semibold text-gray-900 mb-1">
+                Wanderlust Travel
+              </h3>
+              <p class="text-gray-600 text-sm mb-3">UI/UX, Development</p>
+              <a
+                href="#"
+                class="text-primary font-medium inline-flex items-center"
+              >
+                View Project <i class="ri-arrow-right-line ml-1"></i>
+              </a>
+            </div>
+          </div>
+          <!-- Portfolio Item 5 -->
+          <div
+            class="portfolio-item bg-white rounded-lg overflow-hidden shadow-sm"
+          >
+            <div class="relative h-64">
+              <img
+                src="https://readdy.ai/api/search-image?query=real%20estate%20website%20design%20with%20property%20listings%2C%20interactive%20map%2C%20search%20filters%2C%20modern%20real%20estate%20platform%20interface%2C%20property%20details%20page%2C%20agent%20profiles%2C%20neighborhood%20information%2C%20professional%20real%20estate%20web%20design%20with%20clean%20white%20background&width=600&height=400&seq=6&orientation=landscape"
+                alt="Real Estate Platform"
+                class="w-full h-full object-cover object-top"
+              />
+              <div
+                class="portfolio-overlay absolute inset-0 bg-primary/80 flex items-center justify-center p-6"
+              >
+                <div class="text-center text-white">
+                  <h3 class="text-xl font-semibold mb-2">
+                    PrimeEstate Properties
+                  </h3>
+                  <p class="mb-4">
+                    A premium real estate platform with virtual tours and
+                    neighborhood analytics.
+                  </p>
+                  <a
+                    href="#"
+                    class="inline-flex items-center text-white border-b border-white pb-1 hover:pb-2 transition-all"
+                  >
+                    View Details <i class="ri-arrow-right-line ml-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-semibold text-gray-900 mb-1">
+                PrimeEstate Properties
+              </h3>
+              <p class="text-gray-600 text-sm mb-3">Web Design, Development</p>
+              <a
+                href="#"
+                class="text-primary font-medium inline-flex items-center"
+              >
+                View Project <i class="ri-arrow-right-line ml-1"></i>
+              </a>
+            </div>
+          </div>
+          <!-- Portfolio Item 4 -->
+          <div
+            class="portfolio-item bg-white rounded-lg overflow-hidden shadow-sm"
+          >
+            <div class="relative h-64">
+              <img
+                src="https://readdy.ai/api/search-image?query=restaurant%20website%20design%20with%20elegant%20food%20photography%2C%20menu%20display%2C%20reservation%20system%2C%20culinary%20website%20interface%2C%20professional%20food%20establishment%20web%20design%2C%20dining%20experience%20showcase%2C%20chef%20profiles%2C%20elegant%20typography%20on%20white%20background%2C%20restaurant%20branding%20elements&width=600&height=400&seq=4&orientation=landscape"
+                alt="Restaurant Website"
+                class="w-full h-full object-cover object-top"
+              />
+              <div
+                class="portfolio-overlay absolute inset-0 bg-primary/80 flex items-center justify-center p-6"
+              >
+                <div class="text-center text-white">
+                  <h3 class="text-xl font-semibold mb-2">Saveur Restaurant</h3>
+                  <p class="mb-4">
+                    An elegant website for a fine dining restaurant featuring
+                    online reservations and digital menu.
+                  </p>
+                  <a
+                    href="#"
+                    class="inline-flex items-center text-white border-b border-white pb-1 hover:pb-2 transition-all"
+                  >
+                    View Details <i class="ri-arrow-right-line ml-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-semibold text-gray-900 mb-1">
+                Saveur Restaurant
+              </h3>
+              <p class="text-gray-600 text-sm mb-3">Web Design, Development</p>
+              <a
+                href="#"
+                class="text-primary font-medium inline-flex items-center"
+              >
+                View Project <i class="ri-arrow-right-line ml-1"></i>
+              </a>
+            </div>
+          </div>
+          <!-- Portfolio Item 5 -->
+          <div
+            class="portfolio-item bg-white rounded-lg overflow-hidden shadow-sm"
+          >
+            <div class="relative h-64">
+              <img
+                src="https://readdy.ai/api/search-image?query=travel%20booking%20website%20interface%20with%20destination%20search%2C%20flight%20and%20hotel%20booking%20options%2C%20travel%20itinerary%20planner%2C%20vacation%20packages%20display%2C%20modern%20travel%20website%20design%2C%20user-friendly%20booking%20system%2C%20travel%20photography%20showcase%2C%20clean%20white%20background%20with%20accent%20colors&width=600&height=400&seq=5&orientation=landscape"
+                alt="Travel Booking Platform"
+                class="w-full h-full object-cover object-top"
+              />
+              <div
+                class="portfolio-overlay absolute inset-0 bg-primary/80 flex items-center justify-center p-6"
+              >
+                <div class="text-center text-white">
+                  <h3 class="text-xl font-semibold mb-2">Wanderlust Travel</h3>
+                  <p class="mb-4">
+                    A comprehensive travel booking platform with itinerary
+                    planning and local experiences.
+                  </p>
+                  <a
+                    href="#"
+                    class="inline-flex items-center text-white border-b border-white pb-1 hover:pb-2 transition-all"
+                  >
+                    View Details <i class="ri-arrow-right-line ml-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-semibold text-gray-900 mb-1">
+                Wanderlust Travel
+              </h3>
+              <p class="text-gray-600 text-sm mb-3">UI/UX, Development</p>
+              <a
+                href="#"
+                class="text-primary font-medium inline-flex items-center"
+              >
+                View Project <i class="ri-arrow-right-line ml-1"></i>
+              </a>
+            </div>
+          </div>
+          <!-- Portfolio Item 6 -->
+          <div
+            class="portfolio-item bg-white rounded-lg overflow-hidden shadow-sm"
+          >
+            <div class="relative h-64">
+              <img
+                src="https://readdy.ai/api/search-image?query=real%20estate%20website%20design%20with%20property%20listings%2C%20interactive%20map%2C%20search%20filters%2C%20modern%20real%20estate%20platform%20interface%2C%20property%20details%20page%2C%20agent%20profiles%2C%20neighborhood%20information%2C%20professional%20real%20estate%20web%20design%20with%20clean%20white%20background&width=600&height=400&seq=6&orientation=landscape"
+                alt="Real Estate Platform"
+                class="w-full h-full object-cover object-top"
+              />
+              <div
+                class="portfolio-overlay absolute inset-0 bg-primary/80 flex items-center justify-center p-6"
+              >
+                <div class="text-center text-white">
+                  <h3 class="text-xl font-semibold mb-2">
+                    PrimeEstate Properties
+                  </h3>
+                  <p class="mb-4">
+                    A premium real estate platform with virtual tours and
+                    neighborhood analytics.
+                  </p>
+                  <a
+                    href="#"
+                    class="inline-flex items-center text-white border-b border-white pb-1 hover:pb-2 transition-all"
+                  >
+                    View Details <i class="ri-arrow-right-line ml-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-semibold text-gray-900 mb-1">
+                PrimeEstate Properties
+              </h3>
+              <p class="text-gray-600 text-sm mb-3">Web Design, Development</p>
+              <a
+                href="#"
+                class="text-primary font-medium inline-flex items-center"
+              >
+                View Project <i class="ri-arrow-right-line ml-1"></i>
+              </a>
+            </div>
+          </div>
+          <!-- Portfolio Item 7 -->
+          <div
+            class="portfolio-item bg-white rounded-lg overflow-hidden shadow-sm"
+          >
+            <div class="relative h-64">
+              <img
+                src="https://readdy.ai/api/search-image?query=educational%20platform%20interface%20with%20course%20catalog%2C%20learning%20dashboard%2C%20video%20lessons%2C%20online%20education%20website%20design%2C%20e-learning%20platform%20with%20progress%20tracking%2C%20student%20profiles%2C%20assignment%20submission%20system%2C%20clean%20professional%20web%20design&width=600&height=400&seq=7&orientation=landscape"
+                alt="Educational Platform"
+                class="w-full h-full object-cover object-top"
+              />
+              <div
+                class="portfolio-overlay absolute inset-0 bg-primary/80 flex items-center justify-center p-6"
+              >
+                <div class="text-center text-white">
+                  <h3 class="text-xl font-semibold mb-2">EduMaster Learning</h3>
+                  <p class="mb-4">
+                    An interactive educational platform with personalized
+                    learning paths and progress tracking.
+                  </p>
+                  <a
+                    href="#"
+                    class="inline-flex items-center text-white border-b border-white pb-1 hover:pb-2 transition-all"
+                  >
+                    View Details <i class="ri-arrow-right-line ml-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-semibold text-gray-900 mb-1">
+                EduMaster Learning
+              </h3>
+              <p class="text-gray-600 text-sm mb-3">UI/UX, Development</p>
+              <a
+                href="#"
+                class="text-primary font-medium inline-flex items-center"
+              >
+                View Project <i class="ri-arrow-right-line ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-12">
+          <a
+            href="#"
+            class="bg-white text-primary border-2 border-primary px-6 py-3 !rounded-button font-medium hover:bg-gray-50 transition-colors inline-block whitespace-nowrap"
+          >
+            View All Work <i class="ri-arrow-right-line ml-1"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Details Modal -->
+    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+      <div class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+        <div class="sticky top-0 bg-white p-6 border-b flex justify-between items-center">
+          <h3 id="project-modal-title" class="text-2xl font-bold text-gray-900">Project Details</h3>
+          <button id="close-project-modal" class="text-gray-500 hover:text-gray-700">
+            <i class="ri-close-line text-2xl"></i>
+          </button>
+        </div>
+        <div id="project-modal-content" class="p-6">
+          <!-- Content will be populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Service Details Modal -->
+    <div id="service-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+      <div class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+        <div class="sticky top-0 bg-white p-6 border-b flex justify-between items-center">
+          <h3 id="service-modal-title" class="text-2xl font-bold text-gray-900">Service Details</h3>
+          <button id="close-service-modal" class="text-gray-500 hover:text-gray-700">
+            <i class="ri-close-line text-2xl"></i>
+          </button>
+        </div>
+        <div id="service-modal-content" class="p-6">
+          <!-- Content will be populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Hire Modal Section -->
+    <div id="hire-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+      <div class="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div class="sticky top-0 bg-white p-6 border-b flex justify-between items-center">
+          <h3 class="text-2xl font-bold text-gray-900">Hire Me</h3>
+          <button id="close-hire-modal" class="text-gray-500 hover:text-gray-700">
+            <i class="ri-close-line text-2xl"></i>
+          </button>
+        </div>
+        
+        <div class="p-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h4 class="text-xl font-semibold mb-4 text-gray-900">Quick Start Templates</h4>
+              <p class="text-gray-600 mb-4">Click any template below to auto-populate your project details:</p>
+              <div class="space-y-3">
+                <button onclick="populateRecommendations('webDesign')" class="w-full text-left p-3 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors">
+                  <div class="font-medium text-gray-900">🎨 Business Website Redesign</div>
+                  <div class="text-sm text-gray-600">Perfect for business owners needing a fresh, modern website</div>
+                </button>
+                <button onclick="populateRecommendations('webDevelopment')" class="w-full text-left p-3 bg-green-50 hover:bg-green-100 rounded-lg transition-colors">
+                  <div class="font-medium text-gray-900">💻 Web Application Development</div>
+                  <div class="text-sm text-gray-600">For startups and businesses needing custom web apps</div>
+                </button>
+                <button onclick="populateRecommendations('uiuxDesign')" class="w-full text-left p-3 bg-purple-50 hover:bg-purple-100 rounded-lg transition-colors">
+                  <div class="font-medium text-gray-900">📱 Mobile App UI/UX Design</div>
+                  <div class="text-sm text-gray-600">Complete UI/UX design for mobile applications</div>
+                </button>
+                <button onclick="populateRecommendations('computerSolutions')" class="w-full text-left p-3 bg-orange-50 hover:bg-orange-100 rounded-lg transition-colors">
+                  <div class="font-medium text-gray-900">🔧 IT Consultations & Computer Solutions</div>
+                  <div class="text-sm text-gray-600">Comprehensive IT setup and support services</div>
+                </button>
+              </div>
+            </div>
+            
+            <div>
+              <h4 class="text-xl font-semibold mb-4 text-gray-900">Contact Me Directly</h4>
+              <div class="space-y-4">
+                <div class="flex items-center">
+                  <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-3">
+                    <i class="ri-mail-line text-primary"></i>
+                  </div>
+                  <div>
+                    <a href="mailto:ranawebsitedesigner@gmail.com" class="text-primary hover:underline">ranawebsitedesigner@gmail.com</a>
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justifyCenter mr-3">
+                    <i class="ri-phone-line text-primary"></i>
+                  </div>
+                  <div>
+                    <a href="tel:+256759390003" class="text-gray-900 hover:underline">+256 759 390 003</a>
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-3">
+                    <i class="ri-whatsapp-line text-primary"></i>
+                  </div>
+                  <div>
+                    <a href="https://wa.me/256780444789" class="text-gray-900 hover:underline" target="_blank">WhatsApp: +256 780 444 789</a>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mt-6">
+                <h4 class="text-lg font-semibold mb-3 text-gray-900">Availability</h4>
+                <p class="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                <p class="text-gray-600">Saturday: 10:00 AM - 3:00 PM</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project Inquiry Form -->
+          <div class="border-t pt-6">
+            <h4 class="text-xl font-semibold mb-4 text-gray-900">Project Inquiry Form</h4>
+            <form id="modal-hire-form" class="space-y-4">
+              <div>
+                <input 
+                  type="text" 
+                  placeholder="Your Full Name" 
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  required
+                >
+              </div>
+              <div>
+                <input 
+                  type="email" 
+                  placeholder="Email Address" 
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  required
+                >
+              </div>
+              <div>
+                <select 
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  required
+                >
+                  <option value="">Select Service Needed</option>
+                  <option>Web Design</option>
+                  <option>Web Development</option>
+                  <option>UI/UX Design</option>
+                  <option>Computer Solutions and IT Consultations</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <textarea 
+                  rows="4" 
+                  placeholder="Tell me about your project (goals, requirements, timeline...)" 
+                  class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  required
+                ></textarea>
+              </div>
+              <div class="flex items-start">
+                <input
+                  type="checkbox"
+                  id="hire-agreement"
+                  name="agreement"
+                  required
+                  class="mt-1 mr-3 rounded border-gray-300 text-primary focus:ring-primary"
+                >
+                <label for="hire-agreement" class="text-gray-600 text-sm">
+                  I agree to the <a href="#" class="text-primary hover:underline">Terms</a> and <a href="#" class="text-primary hover:underline">Privacy Policy</a>
+                </label>
+              </div>
+              <button 
+                type="submit" 
+                class="w-full bg-primary text-white py-3 px-4 rounded-lg font-medium hover:bg-primary/90 transition-colors"
+              >
+                Send Project Request
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            My Services
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            I offer comprehensive digital solutions tailored to your unique
+            needs, helping you establish a powerful online presence.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Service 1 -->
+          <div
+            class="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
+          >
+            <div
+              class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6"
+            >
+              <i class="ri-layout-4-line ri-xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Web Design</h3>
+            <p class="text-gray-600 mb-6">
+              I create visually stunning, user-friendly websites that capture
+              your brand's essence and engage your audience effectively.
+            </p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-start">
+                <i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+                <span class="text-gray-700">Responsive Design</span>
+              </li>
+              <li class="flex items-start">
+                <i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+                <span class="text-gray-700">Brand Integration</span>
+              </li>
+              <li class="flex items-start">
+                <i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+                <span class="text-gray-700">Visual Storytelling</span>
+              </li>
+            </ul>
+            <a
+              href="#"
+              class="text-primary font-medium inline-flex items-center"
+            >
+              Learn More <i class="ri-arrow-right-line ml-1"></i>
+            </a>
+          </div>
+                    <!-- Service 2 -->
+          <div
+            class="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
+          >
+            <div
+              class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6"
+            >
+              <i class="ri-layout-4-line ri-xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Computer Solutions & IT Consultations</h3>
+            <p class="text-gray-600 mb-6">
+              This involves the practical application of technology and provide expert advice to help businesses align their technology with their objectives.
+            </p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-start">
+                <i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+                <span class="text-gray-700">Troubleshooting and fixing problems</span>
+              </li>
+              <li class="flex items-start">
+                <i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+                <span class="text-gray-700">Integrate both hardware and software</span>
+              </li>
+              <li class="flex items-start">
+                <i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+                <span class="text-gray-700">Security and antivirus protection</span>
+              </li>
+              <li class="flex items-start">
+                <i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+                <span class="text-gray-700">Installing hardware/software</span>
+              </li>
+            </ul>
+            <a
+              href="#"
+              class="text-primary font-medium inline-flex items-center"
+            >
+              Learn More <i class="ri-arrow-right-line ml-1"></i>
+            </a>
+          </div>
+          <!-- Service 3 -->
+          <div
+            class="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
+          >
+            <div
+              class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6"
+            >
+              <i class="ri-pen-nib-line ri-xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">
+              UI/UX Design
+            </h3>
+            <p class="text-gray-600 mb-6">
+              I craft intuitive user experiences and interfaces that make
+              digital interactions seamless, enjoyable, and effective.
+            </p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-start">
+                <i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+                <span class="text-gray-700">User Research</span>
+              </li>
+              <li class="flex items-start">
+                <i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+                <span class="text-gray-700">Wireframing & Prototyping</span>
+              </li>
+              <li class="flex items-start">
+                <i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+                <span class="text-gray-700">Usability Testing</span>
+              </li>
+            </ul>
+            <a
+              href="#"
+              class="text-primary font-medium inline-flex items-center"
+            >
+              Learn More <i class="ri-arrow-right-line ml-1"></i>
+            </a>
+          </div>
+          <!-- Service 4 -->
+          <div
+            class="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
+          >
+            <div
+              class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6"
+            >
+              <i class="ri-code-s-slash-line ri-xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">
+              Web Development
+            </h3>
+            <p class="text-gray-600 mb-6">
+              I build robust, scalable websites and applications using modern
+              technologies that deliver exceptional performance.
+            </p>
+            <ul class="space-y-2 mb-6">
+              <li class="flex items-start">
+                <i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+                <span class="text-gray-700">Frontend Development</span>
+              </li>
+              <li class="flex items-start">
+                <i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+                <span class="text-gray-700">CMS Integration</span>
+              </li>
+              <li class="flex items-start">
+                <i class="ri-checkbox-circle-line text-primary mt-1 mr-2"></i>
+                <span class="text-gray-700">E-commerce Solutions</span>
+              </li>
+            </ul>
+            <a
+              href="#"
+              class="text-primary font-medium inline-flex items-center"
+            >
+              Learn More <i class="ri-arrow-right-line ml-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Me Section -->
+    <section id="about" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              About Me
+            </h2>
+            <p class="text-gray-700 mb-6">
+              Hello! I'm Njose Abey at RANA WEB.D, a passionate web designer, developer and computer specialist solver
+              with over 4 years of experience creating exceptional digital
+              experiences. I combine technical expertise with creative vision to
+              deliver solutions that not only look stunning but also perform
+              flawlessly.
+            </p>
+            <p class="text-gray-700 mb-6">
+              My approach is centered on understanding your unique needs and
+              translating them into digital solutions that help you achieve your
+              goals. Whether you're looking to establish a new online presence
+              or enhance an existing one, I'm committed to delivering results
+              that exceed expectations.
+            </p>
+            <div class="mb-8">
+              <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                My Skills
+              </h3>
+              <div class="space-y-4">
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-gray-700 font-medium">Web Design</span>
+                    <span class="text-gray-600">95%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div
+                      class="skill-progress bg-primary"
+                      style="width: 95%"
+                    ></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-gray-700 font-medium">UI/UX Design</span>
+                    <span class="text-gray-600">90%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div
+                      class="skill-progress bg-primary"
+                      style="width: 90%"
+                    ></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-gray-700 font-medium">HTML/CSS</span>
+                    <span class="text-gray-600">98%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div
+                      class="skill-progress bg-primary"
+                      style="width: 98%"
+                    ></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-gray-700 font-medium">JavaScript</span>
+                    <span class="text-gray-600">85%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div
+                      class="skill-progress bg-primary"
+                      style="width: 85%"
+                    ></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-gray-700 font-medium">WordPress</span>
+                    <span class="text-gray-600">92%</span>
+                  </div>
+                  <div class="skill-bar">
+                    <div
+                      class="skill-progress bg-primary"
+                      style="width: 92%"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="#"
+                class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+              >
+                <i class="ri-download-line mr-2"></i> Download CV
+              </a>
+              <div class="flex items-center space-x-4">
+                <a
+                  href="#"
+                  class="w-10 h-10 bg-white rounded-full shadow-sm flex items-center justify-center text-gray-700 hover:text-primary transition-colors"
+                >
+                  <i class="ri-linkedin-fill"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 bg-white rounded-full shadow-sm flex items-center justify-center text-gray-700 hover:text-primary transition-colors"
+                >
+                  <i class="ri-dribbble-fill"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 bg-white rounded-full shadow-sm flex items-center justify-center text-gray-700 hover:text-primary transition-colors"
+                >
+                  <i class="ri-github-fill"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 bg-white rounded-full shadow-sm flex items-center justify-center text-gray-700 hover:text-primary transition-colors"
+                >
+                  <i class="ri-behance-fill"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2">
+            <div class="relative">
+              <div
+                class="absolute -top-6 -left-6 w-24 h-24 bg-primary/10 rounded-lg"
+              ></div>
+              <div
+                class="absolute -bottom-6 -right-6 w-24 h-24 bg-primary/10 rounded-lg"
+              ></div>
+              <img
+                src="https://static.readdy.ai/image/4c158646d7b3a53827a01b57a35bd671/86af81b34f72b8626980947d6a774ac6.jfif"
+                alt="Njose Abey"
+                class="relative z-10 w-full h-auto rounded-lg shadow-md"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Get In Touch
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Have a project in mind or want to discuss how I can help your
+            business? I'm just a message away.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div class="lg:col-span-2">
+            <form
+              action="mailto:ranawedsitedesigner@gmail.com"
+              method="POST"
+              enctype="text/plain"
+              class="bg-white rounded-lg p-8 shadow-sm border border-gray-100"
+              id="contactForm"
+            >
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label for="name" class="block text-gray-700 font-medium mb-2"
+                    >Your Name</label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    class="w-full px-4 py-3 rounded border border-gray-300 focus:border-primary"
+                    placeholder="John Doe"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="email"
+                    class="block text-gray-700 font-medium mb-2"
+                    >Your Email</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    class="w-full px-4 py-3 rounded border border-gray-300 focus:border-primary"
+                    placeholder="john@example.com"
+                  />
+                </div>
+              </div>
+              <div class="mb-6">
+                <label
+                  for="subject"
+                  class="block text-gray-700 font-medium mb-2"
+                  >Subject</label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  required
+                  class="w-full px-4 py-3 rounded border border-gray-300 focus:border-primary"
+                  placeholder="Project Inquiry"
+                />
+              </div>
+              <div class="mb-6">
+                <label
+                  for="message"
+                  class="block text-gray-700 font-medium mb-2"
+                  >Your Message</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                  maxlength="500"
+                  class="w-full px-4 py-3 rounded border border-gray-300 focus:border-primary"
+                  placeholder="Tell me about your project..."
+                ></textarea>
+                <div class="text-sm text-gray-500 mt-1">
+                  <span id="charCount">0</span>/500 characters
+                </div>
+              </div>
+              <div class="mb-6 flex items-start">
+                <input
+                  type="checkbox"
+                  id="consent"
+                  required
+                  class="custom-checkbox mr-3 mt-1"
+                />
+                <label for="consent" class="text-gray-600 text-sm"
+                  >I agree to the
+                  <a href="#" class="text-primary">Privacy Policy</a> and
+                  consent to being contacted regarding my inquiry.</label
+                >
+              </div>
+              <button
+                type="submit"
+                class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+              >
+                Send Message <i class="ri-send-plane-line ml-1"></i>
+              </button>
+              <div id="formStatus" class="mt-4 text-center hidden">
+                <p class="text-green-600">
+                  Message sent successfully! I'll get back to you soon.
+                </p>
+              </div>
+            </form>
+          </div>
+          <div>
+            <div
+              class="bg-white rounded-lg p-8 shadow-sm border border-gray-100 mb-8"
+            >
+              <h3 class="text-xl font-semibold text-gray-900 mb-6">
+                Contact Information
+              </h3>
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <div
+                    class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-4"
+                  >
+                    <i class="ri-mail-line text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-gray-700 font-medium mb-1">Email</h4>
+                    <a
+                      href="mailto:ranawebsitedesigner@gmail.com"
+                      class="text-primary"
+                      >ranawebsitedesigner@gmail.com</a
+                    >
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div
+                    class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-4"
+                  >
+                    <i class="ri-phone-line text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-gray-700 font-medium mb-1">Phone</h4>
+                    <a href="tel:+256759390003" class="text-gray-600"
+                      >+256 759 390 003</a
+                    >
+                    <p class="text-gray-600 mt-1">WhatsApp: +256 780 444 789</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div
+                    class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-4"
+                  >
+                    <i class="ri-map-pin-line text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-gray-700 font-medium mb-1">Location</h4>
+                    <p class="text-gray-600">Kayunga Town, Uganda</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div
+                    class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-4"
+                  >
+                    <i class="ri-time-line text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-gray-700 font-medium mb-1">
+                      Working Hours
+                    </h4>
+                    <p class="text-gray-600">Mon - Fri: 9:00 AM - 6:00 PM</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 h-64"
+            >
+              <div
+                class="h-full w-full bg-cover bg-center"
+                style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png')"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+      <div class="container mx-auto px-6">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12"
+        >
+          <div>
+            <img src="\Users\ABEY\Downloads\new web log.png" alt="RANA WEBSITE DESIGNERS" width="50" height="50">
+            <a
+              href="#"
+              class="text-2xl font-['Pacifico'] text-white mb-6 inline-block"
+              >Rana Website Designers</a
+            >
+            <p class="text-gray-400 mb-6">
+              Crafting exceptional digital experiences through thoughtful design
+              and development. Let's create something amazing together.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="ri-facebook-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="ri-twitter-x-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="ri-instagram-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="ri-linkedin-fill"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#home"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#portfolio"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Portfolio</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-6">Services</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Web Design</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >UI/UX Design</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Web Development</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >E-commerce Solutions</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >WordPress Development</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-6">Newsletter</h3>
+            <p class="text-gray-400 mb-4">
+              Subscribe to receive updates on my latest work and insights.
+            </p>
+            <form class="mb-4">
+              <div class="flex">
+                <input
+                  type="email"
+                  placeholder="Your email address"
+                  class="w-full px-4 py-2 rounded-l bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-primary"
+                />
+                <button
+                  type="submit"
+                  class="bg-primary px-4 py-2 rounded-r text-white hover:bg-primary/90 transition-colors whitespace-nowrap"
+                >
+                  <i class="ri-send-plane-line"></i>
+                </button>
+              </div>
+            </form>
+            <div class="flex space-x-3">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-visa-fill ri-lg text-gray-400"></i>
+              </div>
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-mastercard-fill ri-lg text-gray-400"></i>
+              </div>
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-paypal-fill ri-lg text-gray-400"></i>
+              </div>
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-apple-fill ri-lg text-gray-400"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 pt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 text-sm mb-4 md:mb-0">
+              &copy; 2025 RANAwebsite designers. All rights reserved.
+            </p>
+            <div class="flex space-x-6">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white text-sm transition-colors"
+                >Privacy Policy</a
+              >
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white text-sm transition-colors"
+                >Terms of Service</a
+              >
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white text-sm transition-colors"
+                >Cookie Policy</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Back to Top Button -->
+    <a
+      id="back-to-top"
+      href="#"
+      class="fixed bottom-6 right-6 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white shadow-lg opacity-0 invisible transition-all duration-300"
+    >
+      <i class="ri-arrow-up-line ri-lg"></i>
+    </a>
+    <!-- Scripts -->
+    <script id="header-scroll">
+      document.addEventListener("DOMContentLoaded", function () {
+        const header = document.querySelector("header");
+        const backToTop = document.getElementById("back-to-top");
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 100) {
+            header.classList.add("shadow-md");
+            backToTop.classList.remove("opacity-0", "invisible");
+            backToTop.classList.add("opacity-100", "visible");
+          } else {
+            header.classList.remove("shadow-md");
+            backToTop.classList.add("opacity-0", "invisible");
+            backToTop.classList.remove("opacity-100", "visible");
+          }
+        });
+        backToTop.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+    <script id="mobile-menu-toggle">
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        menuButton.addEventListener("click", function () {
+          const isOpen = mobileMenu.classList.contains("hidden");
+          if (isOpen) {
+            mobileMenu.classList.remove("hidden");
+            menuButton.innerHTML = '<i class="ri-close-line ri-lg"></i>';
+          } else {
+            mobileMenu.classList.add("hidden");
+            menuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
+          }
+        });
+        // Close menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll("a");
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            mobileMenu.classList.add("hidden");
+            menuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
+          });
+        });
+      });
+    </script>
+    <script id="portfolio-filter">
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll(".portfolio-filter");
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            // Remove active class from all buttons
+            filterButtons.forEach((btn) => {
+              btn.classList.remove("active", "bg-primary", "text-white");
+              btn.classList.add("text-gray-700");
+            });
+            // Add active class to clicked button
+            this.classList.add("active", "bg-primary", "text-white");
+            this.classList.remove("text-gray-700");
+            // Here you would normally filter the portfolio items
+            // For this demo, we're just changing the button styles
+          });
+        });
+      });
+    </script>
+    <script id="contact-form">
+      document.addEventListener("DOMContentLoaded", function () {
+        const messageTextarea = document.getElementById("message");
+        const charCount = document.getElementById("charCount");
+        const contactForm = document.getElementById("contactForm");
+        const formStatus = document.getElementById("formStatus");
+        messageTextarea.addEventListener("input", function () {
+          const currentLength = this.value.length;
+          charCount.textContent = currentLength;
+          if (currentLength > 500) {
+            this.value = this.value.substring(0, 500);
+            charCount.textContent = 500;
+          }
+        });
+        contactForm.addEventListener("submit", function (e) {
+          const email = document.getElementById("email").value;
+          const subject = document.getElementById("subject").value;
+          const message = document.getElementById("message").value;
+          const mailtoLink = `mailto:ranawebsitedesigner@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}%0A%0AFrom: ${encodeURIComponent(email)}`;
+          window.location.href = mailtoLink;
+          formStatus.classList.remove("hidden");
+          setTimeout(() => {
+            formStatus.classList.add("hidden");
+          }, 5000);
+        });
+      });
+    </script>
+    <script id="smooth-scroll">
+      document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll('a[href^="#"]');
+        links.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            const href = this.getAttribute("href");
+            if (href !== "#") {
+              e.preventDefault();
+              const targetElement = document.querySelector(href);
+              if (targetElement) {
+                const headerHeight = document.querySelector("header").offsetHeight;
+                const targetPosition =
+                  targetElement.getBoundingClientRect().top +
+                  window.pageYOffset -
+                  headerHeight;
+                window.scrollTo({
+                  top: targetPosition,
+                  behavior: "smooth",
+                });
+              }
+            }
+          });
+        });
+      });
+    </script>
+    <script id="active-nav-highlight">
+      document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll(".nav-link");
+        function highlightNavLink() {
+          const scrollPosition = window.scrollY;
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop - 100;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute("id");
+            if (
+              scrollPosition >= sectionTop &&
+              scrollPosition < sectionTop + sectionHeight
+            ) {
+              navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href") === "#" + sectionId) {
+                  link.classList.add("active");
+                }
+              });
+            }
+          });
+        }
+        window.addEventListener("scroll", highlightNavLink);
+        highlightNavLink(); // Run once on page load
+      });
+    </script>
+
+    <script>
+      // Hire Me Recommendations System
+      document.addEventListener('DOMContentLoaded', function() {
+        const hireModal = document.getElementById('hire-modal');
+        const hireForm = document.getElementById('modal-hire-form');
+        const closeModalBtn = document.getElementById('close-hire-modal');
+        
+        // Recommended project templates
+        const recommendations = {
+          webDesign: {
+            name: "Business Owner",
+            email: "business@example.com",
+            service: "Web Design",
+            message: `Hello RANA,
+
+I'm looking to redesign my business website to create a more modern and professional online presence. Here are my requirements:
+
+PROJECT OVERVIEW:
+- Type: Business website redesign
+- Pages needed: Home, About, Services, Portfolio, Contact
+- Style: Clean, modern, professional
+- Target audience: Local businesses and customers
+
+KEY FEATUREURES NEEDED:
+- Responsive design for all devices
+- Fast loading speed
+- SEO optimization
+- Contact forms
+- Social media integration
+- Easy content management
+
+BUDGET: $500 - $800
+TIMELINE: 2-3 weeks
+
+I'm particularly interested in your portfolio items and would love to discuss how we can make my website stand out.
+
+Best regards,
+[Your Name]`
+          },
+          
+          webDevelopment: {
+            name: "Startup Founder",
+            email: "startup@example.com",
+            service: "Web Development",
+            message: `Hello RANA,
+
+I'm building a web application for my startup and need a reliable developer to bring my vision to life.
+
+PROJECT DETAILS:
+- Type: Web application development
+- Features: User authentication, dashboard, data management
+- Technology: Modern stack (React/Node.js preferred)
+- Database: Integration needed
+- API: Third-party integrations required
+
+FUNCTIONAL REQUIREMENTS:
+- User registration/login system
+- Admin dashboard
+- Data visualization
+- Payment processing
+- Mobile responsive
+- Performance optimization
+
+BUDGET: $800 - $1500
+TIMELINE: 4-6 weeks
+
+I have some wireframes ready and would appreciate your expertise in refining the technical approach.
+
+Looking forward to discussing this project.
+
+Best regards,
+[Your Name]`
+          },
+          
+          uiuxDesign: {
+            name: "Product Manager",
+            email: "pm@example.com",
+            service: "UI/UX Design",
+            message: `Hello RANA,
+
+I need a UI/UX designer to help create an intuitive interface for our new product.
+
+PROJECT SCOPE:
+- Type: Mobile app UI/UX design
+- Platform: iOS and Android
+- Screens: 15-20 screens total
+- Style: Modern, user-friendly, accessible
+
+DELIVERABLES NEEDED:
+- User research and personas
+- Wireframes and prototypes
+- High-fidelity mockups
+- Design system/components
+- User testing recommendations
+- Handoff documentation
+
+TARGET USERS:
+- Age: 25-45
+- Tech-savvy professionals
+- Primary use: productivity/organization
+
+BUDGET: $600 - $1000
+TIMELINE: 3-4 weeks
+
+I have user stories and basic requirements documented. Would love to see your design process.
+
+Best regards,
+[Your Name]`
+          },
+          
+          computerSolutions: {
+            name: "Office Manager",
+            email: "office@example.com",
+            service: "Computer Solutions",
+            message: `Hello RANA,
+
+We need comprehensive IT solutions for our growing office.
+
+SERVICES NEEDED:
+- Network setup and security
+- Computer maintenance and support
+- Software installation and training
+- Data backup solutions
+- Cloud services setup
+- Remote support capabilities
+
+CURRENT SETUP:
+- 10-15 computers
+- Mixed Windows/Mac environment
+- Need better security protocols
+- Require regular maintenance
+
+ONGOING SUPPORT:
+- Monthly maintenance visits
+- Remote support as needed
+- Emergency support availability
+- Staff training sessions
+
+BUDGET: $400 - $800 setup + monthly support
+TIMELINE: 1-2 weeks setup, ongoing support
+
+Please provide a detailed quote for both setup and ongoing support.
+
+Best regards,
+[Your Name]`
+          }
+        };
+        
+        // Function to populate form with recommendations
+        function populateRecommendations(type) {
+          const form = document.getElementById('modal-hire-form');
+          if (!form) return;
+          
+          const rec = recommendations[type] || recommendations.webDesign;
+          
+          // Populate form fields
+          const nameInput = form.querySelector('input[type="text"]');
+          const emailInput = form.querySelector('input[type="email"]');
+          const serviceSelect = form.querySelector('select');
+          const messageTextarea = form.querySelector('textarea');
+          
+          if (nameInput) nameInput.placeholder = rec.name;
+          if (emailInput) emailInput.placeholder = rec.email;
+          if (serviceSelect) serviceSelect.value = rec.service;
+          if (messageTextarea) messageTextarea.placeholder = rec.message;
+          
+          // Add visual feedback
+          const inputs = form.querySelectorAll('input, select, textarea');
+          inputs.forEach(input => {
+            input.classList.add('border-primary', 'bg-blue-50/30');
+            setTimeout(() => {
+              input.classList.remove('border-primary', 'bg-blue-50/30');
+            }, 2000);
+          });
+        }
+        
+        // Make populateRecommendations globally available
+        window.populateRecommendations = populateRecommendations;
+        
+        // Function to open modal
+        function openHireModal(type = 'webDesign') {
+          hireModal.classList.remove('hidden');
+          populateRecommendations(type);
+        }
+        
+        // Function to close modal
+        function closeHireModal() {
+          hireModal.classList.add('hidden');
+        }
+        
+        // Event listeners for all Hire Me buttons
+        document.querySelectorAll('a[href="#contact"]').forEach(button => {
+          button.addEventListener('click', function(e) {
+            e.preventDefault();
+            openHireModal('webDesign'); // Default to web design
+          });
+        });
+        
+        // Enhanced click handlers with service detection
+        document.addEventListener('click', function(e) {
+          if (e.target.matches('a[href="#contact"]') || e.target.closest('a[href="#contact"]')) {
+            e.preventDefault();
+            
+            // Determine service type based on context
+            let serviceType = 'webDesign';
+            
+            // Check if we're in services section
+            if (e.target.closest('#services')) {
+              const serviceCard = e.target.closest('.bg-white.rounded-lg');
+              if (serviceCard) {
+                const serviceTitle = serviceCard.querySelector('h3')?.textContent?.toLowerCase();
+                if (serviceTitle?.includes('ui/ux')) serviceType = 'uiuxDesign';
+                else if (serviceTitle?.includes('development')) serviceType = 'webDevelopment';
+              }
+            }
+            
+            openHireModal(serviceType);
+          }
+        });
+        
+        // Close modal events
+        closeModalBtn.addEventListener('click', closeHireModal);
+        hireModal.addEventListener('click', function(e) {
+          if (e.target === hireModal) closeHireModal();
+        });
+        
+        // Auto-populate based on URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const service = urlParams.get('service');
+        if (service && recommendations[service]) {
+          openHireModal(service);
+        }
+      });
+    </script>
+  </body>
+</html>
